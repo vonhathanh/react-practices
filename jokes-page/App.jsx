@@ -18,26 +18,15 @@
  */
 
 import Joke from "./Joke";
+import jokesData from "./jokesData"
 
 export default function App() {
-    const specialPunchline = [1,2, 3, 4, 5]
+    const jokes = jokesData.map((joke) => {
+        return <Joke setup={joke.setup} punchline={joke.punchline} />
+    })
     return (
-        <>
-            <Joke 
-                punchline="I can't wait to see her face light up when she opens it."
-            />
-            <Joke 
-                setup="How did the hacker escape the police?" 
-                punchline={specialPunchline}
-            />
-            <Joke 
-                setup="Why don't pirates travel on mountain roads?" 
-                punchline="Scurvy"
-            />
-            <Joke 
-                setup="Why do bees stay in the hive in the winter?" 
-                punchline="Swarm."
-            />
-        </>
+        <main>
+            {jokes}
+        </main>
     )
 }
