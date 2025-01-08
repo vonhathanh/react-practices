@@ -4,9 +4,7 @@ export default function Main() {
 
     const [ingredients, setIngredients] = React.useState([])
 
-    function onSubmit(event) {
-        event.preventDefault();
-        const formData = new FormData(event.currentTarget);
+    function onSubmit(formData) {
         const ingredient = formData.get("ingredient");
         setIngredients(prevIngredients => [...prevIngredients, ingredient]);
     }
@@ -14,8 +12,7 @@ export default function Main() {
     return (
         <main>
             <form 
-                className="add-ingredient-form"
-                onSubmit={onSubmit}>
+                className="add-ingredient-form" action={onSubmit}>
                 <input 
                     aria-label="Add ingredient" 
                     type="text"
