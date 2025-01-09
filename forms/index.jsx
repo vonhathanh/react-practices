@@ -12,7 +12,9 @@ function App() {
   function signUp(formData) {
     const email = formData.get("email")
     const password = formData.get("password")
-    console.log(password)
+    const employmentStatus = formData.get("employmentStatus")
+    const dietary = formData.getAll("dietary")
+    console.log(dietary)
   }
 
   return (
@@ -32,16 +34,32 @@ function App() {
         <fieldset>
           <legend>Employment Status:</legend>
           <label>
-            <input type="radio" name="employmentStatus" />
+            <input type="radio" name="employmentStatus" value="Unemployed" />
             Unemployed
         </label>
           <label>
-            <input type="radio" name="employmentStatus" />
+            <input type="radio" name="employmentStatus" value="Part-time" />
             Part-time
         </label>
           <label>
-            <input type="radio" name="employmentStatus" />
+            <input type="radio" name="employmentStatus" defaultChecked={true} value="Full-time" />
             Full-time
+        </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Dietary restrictions:</legend>
+          <label>
+            <input type="checkbox" name="dietary" value="Vegan" />
+            Vegan
+        </label>
+          <label>
+            <input type="checkbox" name="dietary" value="Glutten" />
+            Glutten
+        </label>
+          <label>
+            <input type="checkbox" name="dietary" defaultChecked={true} value="Normal" />
+            Normal
         </label>
         </fieldset>
 
