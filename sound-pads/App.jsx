@@ -1,19 +1,24 @@
+import { useState } from "react"
 import pads from "./pads"
+import Pad from "./Pad"
 
-export default function App() {
-    /**
-     * Challenge part 1:
-     * 1. Initialize state with the default value of the
-     *    array pulled in from pads.js
-     * 2. Map over that state array and display each one
-     *    as a <button> (CSS is already written for you)
-     *    (Don't worry about using the "on" or "color" 
-     *    properties yet)
-     */
+export default function App(props) {
+    const [soundPads, setSoundPads] = useState(pads)
+
+    function toogle(id) {
+        console.log("toolging ", id)
+        setSoundPads(oldPads => oldPads.map(item => {
+            return item.id == id ? {...item, on: !item.on} : item
+        }))
+    }
+
+    const padButtons = soundPads.map(pad => {
+        return <Pad key={pad.id} id={pad.id} color={pad.color} on={pad.on} toogle={toogle} />
+    })
     return (
         <main>
             <div className="pad-container">
-                {/* <button>s go here */}
+                {padButtons}
             </div>
         </main>
     )
