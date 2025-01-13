@@ -4,5 +4,33 @@
 
 body {
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+main {
+    background: #0B2434;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.game-board {
+    background: #F5F5F5;
+    width: 90%;
+    height: 85%;
+    border-radius: 10px;
+    display: grid;
+    gap: 10px 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+button.dice {
+    border-radius: 5px;
+    width: 70px;
+    height: 70px;
+}
