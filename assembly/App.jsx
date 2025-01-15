@@ -1,5 +1,6 @@
 import React from "react"
-import Header from "./Header"
+import Header from "./components/Header"
+import Status from "./components/Status"
 
 /**
  * Goal: Build out the main parts of our app
@@ -12,7 +13,7 @@ export default function Hangman() {
     return (
         <main>
             <Header />
-            Game goes here
+            <Status />
         </main>
     )
 }
