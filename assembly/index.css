@@ -12,3 +12,18 @@ body {
     display: flex;
     justify-content: center;
 }
+
+header {
+    text-align: center;
+}
+
+header > h1 {
+    color: #F9F4D4;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+header > p {
+    color: #8E8E8E;
+    font-size: 0.875rem;
+}
