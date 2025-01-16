@@ -38,9 +38,8 @@ header > p {
 
 section.status {
     text-align: center;
-    background-color: #10A95B;
     min-width: 330px;
-    min-height: 40px;
+    min-height: 58px;
     border-radius: 6px;
     margin-block: 30px;
 }

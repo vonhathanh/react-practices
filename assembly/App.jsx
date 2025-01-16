@@ -14,6 +14,8 @@ export default function Hangman() {
     const wrongGuessCount = guessedChars.reduce((sum, char) => keyWord.includes(char) ? sum += 0 : sum += 1, 0);
 
     const isGameOver = languages.length - 1 <= wrongGuessCount;
+    const isGameWon = guessedChars.length - wrongGuessCount >= new Set(keyWord.split("")).size
+    // console.log("won? ", isGameWon, guessedChars - wrongGuessCount, new Set(keyWord.split("")).size)
 
     function handleKeyboardClick(char) {
         setGuessedChars((prevChars) =>
@@ -24,7 +26,7 @@ export default function Hangman() {
     return (
         <main>
             <Header />
-            <Status />
+            <Status isGameOver={isGameOver} isGameWon={isGameWon}/>
             <ProgrammingLanguages languages={languages} wrongGuessCount={wrongGuessCount} />
             <KeyWord word={keyWord} guessedChars={guessedChars} />
             <KeyBoard alphabet={alphabet} guessedChars={guessedChars} keyWord={keyWord} onClick={handleKeyboardClick} />
