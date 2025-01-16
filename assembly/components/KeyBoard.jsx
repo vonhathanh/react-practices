@@ -1,18 +1,11 @@
-import { KEYBOARD_STATUS } from "../constants"
+export default function KeyBoard({alphabet, guessedChars, keyWord, onClick}) {
 
-export default function KeyBoard({alphabet, onClick}) {
-
-    const buttons = alphabet.map(c => {
+    const buttons = alphabet.split("").map(c => {
         let style = {backgroundColor: "#FCBA29"}
-        switch (c.status) {
-            case KEYBOARD_STATUS.CORRECT_GUESS:
-                style = {backgroundColor: "#10A95B"}
-                break;
-            case KEYBOARD_STATUS.INCORRECT_GUESS:
-                style = {backgroundColor: "#EC5D49"}
-                break;
+        if (guessedChars.includes(c)) {
+            style = keyWord.includes(c) ? {backgroundColor: "#10A95B"} : {backgroundColor: "#EC5D49"}
         }
-        return <button key={c.value} style={style} onClick={() => onClick(c.value)} >{c.value}</button>
+        return <button key={c} style={style} onClick={() => onClick(c)} >{c.toUpperCase()}</button>
     })
 
     return (

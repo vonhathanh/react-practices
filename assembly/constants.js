@@ -1,5 +1,0 @@
-export const KEYBOARD_STATUS = {
-    UNPRESSED: 1,
-    CORRECT_GUESS: 2,
-    INCORRECT_GUESS: 3
-}
