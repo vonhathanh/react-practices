@@ -3,7 +3,7 @@ import Dice from "./Dice"
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
 
-const NUM_DICES = 3;
+const NUM_DICES = 10;
 
 function getRandomInteger(a, b) {
     return Math.floor(Math.random() * (b - a + 1)) + a
