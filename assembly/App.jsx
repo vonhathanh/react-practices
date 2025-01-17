@@ -41,7 +41,7 @@ export default function Hangman() {
                 isGameWon={isGameWon}
                 deadLanguage={deadLanguage} />
             <ProgrammingLanguages languages={languages} wrongGuessCount={wrongGuessCount} />
-            <KeyWord word={keyWord} guessedChars={guessedChars} />
+            <KeyWord word={keyWord} guessedChars={guessedChars} isGameOver={isGameOver}/>
             <KeyBoard
                 alphabet={alphabet}
                 guessedChars={guessedChars}

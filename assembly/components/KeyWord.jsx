@@ -1,8 +1,14 @@
 
-export default function KeyWord({word, guessedChars}) {
+export default function KeyWord({ word, guessedChars, isGameOver }) {
+    const gameOverStyle = { color: "red" }
+
     const chars = word.split("").map((c, i) => {
-        c = guessedChars.includes(c) ? c : ''
-        return <div key={i}>{c}</div>
+        if (guessedChars.includes(c))
+            return <div key={i}>{c}</div>
+        if (isGameOver)
+            return <div key={i} style={gameOverStyle}>{c}</div>
+        else
+            return <div key={i}></div>
     })
 
     return (
