@@ -5,10 +5,13 @@ import ProgrammingLanguages from "./components/ProgrammingLanguages";
 import KeyWord from "./components/KeyWord";
 import KeyBoard from "./components/KeyBoard";
 import { languages } from "./languages";
+import { getKeyWord } from "./utils";
 
 export default function Hangman() {
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    const [keyWord, setKeytWord] = useState("react");
+    const [keyWord, setKeyWord] = useState(() => getKeyWord());
+    console.log("keyword ", keyWord)
+
     const [guessedChars, setGuessedChars] = useState([]);
     const [deadLanguage, setDeadLanguage] = useState("")
 
@@ -22,7 +25,12 @@ export default function Hangman() {
         setGuessedChars((prevChars) =>
             prevChars.includes(char) ? prevChars : [...prevChars, char]
         );
+    }
 
+    function newGame() {
+        setKeyWord(getKeyWord())
+        setGuessedChars([])
+        setDeadLanguage("")
     }
 
     return (
@@ -41,7 +49,7 @@ export default function Hangman() {
                 onClick={handleKeyboardClick}
                 disabled={isGameOver || isGameWon}
             />
-            {isGameOver && <button className="new-game">New Game</button>}
+            {(isGameOver || isGameWon) && <button className="new-game" onClick={newGame}>New Game</button>}
         </main>
     );
 }
